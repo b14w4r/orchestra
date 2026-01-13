@@ -2,7 +2,8 @@
 FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /src
 COPY src/Main.java /src/Main.java
-RUN javac Main.java && jar --create --file app.jar Main.class
+RUN javac Main.java && jar cfe app.jar Main Main.class
+
 
 # run
 FROM eclipse-temurin:21-jre-alpine
